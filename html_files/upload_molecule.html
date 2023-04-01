@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> File Upload </title> 
+    </head>
+  <body>
+    <h1> File Upload </h1>
+        <form action="molecule" enctype="multipart/form-data" method="post"> 
+            <p> <input type="file" id="sdf_file" name="filename"/> </p>
+
+            <h3> Enter the rotation for the molecule </h3>
+            <p> <label> Roll:&nbsp  </label> <input type="number" id="roll" name="roll"> </p>
+            <p> <label> Pitch: </label> <input type="number" id="pitch" name="pitch"> </p>
+            <p> <label> Yaw:&nbsp </label> <input type="number" id="yaw" name="yaw"> </p>
+
+            <p> <input type="submit" value="Upload"/> </p> 
+        </form>
+  </body>
+</html>

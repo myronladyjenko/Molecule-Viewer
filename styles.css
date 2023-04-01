@@ -1,0 +1,277 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: #ddf0ff;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.background-image {
+  background-image: url("/images/Caffeine.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: -1;
+  animation: rotation 58s linear infinite;
+}
+
+.blur-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background: #ddf0ff;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.heading1 {
+  font-size: 12vh;
+  text-align: center;
+  color:  #23435e;
+}
+
+.heading2 {
+  font-size: 8vh;
+  text-align: center;
+  color:  #23435e;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #23435e;
+  z-index: 1;
+}
+
+li {
+  padding: 2vh 2vw;
+}
+
+.nav-space {
+  flex: auto;
+}
+
+a {
+  text-decoration: none;
+  font-size: 19px;
+  color: white;
+}
+
+.elements {
+  display: flex;
+  flex-direction: column;
+  max-width: max-content;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 1px;
+}
+
+.cell {
+  margin-right: 1px;
+  min-width: 5vw;
+  height: 90px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: red;
+  color: #ddf0ff;
+}
+
+.empty-cell {
+  min-width: 5vw;
+  margin-right: 1px;
+}
+
+.empty-row {
+  height: 50px;
+  flex: auto;
+}
+
+.non-metal {
+  background-color: olive;
+}
+
+.noble-gas {
+  background-color: rgb(207, 41, 41);
+}
+
+.alkali-metal {
+  background-color: darkgreen;
+}
+
+.alkaline-earth-metal {
+  background-color: rgb(58, 58, 180);
+}
+
+.halogen {
+  background-color: rgb(209, 140, 12);
+}
+
+.metalloid {
+  background-color: lightseagreen;
+}
+
+.post-transition-metal {
+  background-color: rgb(190, 190, 27);
+}
+
+.lanthanide {
+  background-color: rgb(212, 98, 176);
+}
+
+.actinide {
+  background-color: lightslategray
+}
+
+.transition-metal {
+  background-color: rgba(82, 8, 82, 0.813);
+}
+
+.p-top {
+  font-size: 2vh;
+  text-align: left;
+  margin-left: 3px;
+}
+
+.span-center {
+  font-size: 3vh;
+  text-align: center;
+}
+
+.p-bottom {
+  font-size: 1.2vh;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.heading-periodic-table {
+  font-size: 7vh;
+  color: #23435e;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.row-construct {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  margin-bottom: 1.2vh;
+}
+
+.type {
+  display: flex;
+  margin-right: 1.2vw;
+}
+
+.rectangle-nonmetal {
+  width: 20px;
+  height: 20px;
+  background-color: olive;
+}
+
+.rectangle-lanthanide {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(212, 98, 176);
+}
+
+.rectangle-halogen {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(209, 140, 12);
+}
+
+.rectangle-alkali-metal {
+  width: 20px;
+  height: 20px;
+  background-color: darkgreen;
+}
+
+.rectangle-actinide {
+  width: 20px;
+  height: 20px;
+  background-color: lightslategray
+}
+
+.rectangle-noble-gas {
+  width: 20px;
+  height: 20px;
+  background-color:  rgb(207, 41, 41);
+}
+
+.rectangle-alkali-earth-metal {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(58, 58, 180);
+}
+
+.rectangle-metalloid {
+  width: 20px;
+  height: 20px;
+  background-color: lightseagreen;
+}
+
+.rectangle-transition-metal {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(82, 8, 82, 0.813);
+}
+
+.rectangle-post-transition-metal {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(190, 190, 27);
+}
+
+.format-types {
+  font-size: 0.9vw;
+  margin-left: 0.4vw;
+}
+
+.prompt-form {
+  position: absolute;
+  top: 30vh;
+  left: 40%;
+  background-color: white;
+  z-index: 10;
+}
+
+.blur {
+  filter: blur(5px);
+}
