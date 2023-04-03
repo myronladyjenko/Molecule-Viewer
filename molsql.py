@@ -49,7 +49,7 @@ class Database:
     def __init__(self, reset=False):
         if reset == True:
             if (os.path.exists('molecules.db')):
-                os.remove('molecules.db');
+                os.remove('molecules.db');          
         self.connection = sqlite3.connect('molecules.db');
     
     # This function inserts a table to the database

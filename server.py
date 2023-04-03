@@ -6,7 +6,8 @@ import re;
 import molsql;
 import urllib;
 
-db = molsql.Database(reset=True);
+db = molsql.Database(reset=False);
+db.create_tables();
 
 # this function searches for the integer value in the string
 # returns 0 - if doesn't, value - otherwise
@@ -21,7 +22,6 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
     def do_GET(self):
         if (((".html" ) in self.path) or ((".js" ) in self.path)):
             path = self.path;
-            print(path);
             if (("html_files" not in path) and (".js" not in path)):
                 path = "/html_files" + path;
 
@@ -80,7 +80,55 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
             self.wfile.write(bytes("404: not found", "utf-8"));
 
     def do_POST(self):
-        if self.path == "/form_handler.html":
+        if self.path == "/elements_addition.html":
+            # this is specific to 'multipart/form-data' encoding used by POST
+            content_length = int(self.headers['Content-Length']);
+            body = self.rfile.read(content_length);
+
+            # convert POST content into a dictionary
+            postvars = urllib.parse.parse_qs(body.decode('utf-8'));
+
+            elementsTuple = (int(postvars['number'][0]), postvars['code'][0], postvars['name'][0], postvars['color1'][0], postvars['color2'][0], postvars['color3'][0], int(postvars['radius'][0]));
+            db['Elements'] = elementsTuple;
+
+            elementsData = db.connection.execute(("SELECT * FROM Elements")).fetchall();
+            print(elementsData);
+            rows = ""
+            for element in elementsData:
+                rows += "<tr>"
+                rows += "<td>" + str(element[0]) + "</td>"
+                rows += "<td>" + element[1] + "</td>"
+                rows += "<td>" + element[2] + "</td>"
+                rows += "<td>" + element[3] + "</td>"
+                rows += "<td>" + element[4] + "</td>"
+                rows += "<td>" + element[5] + "</td>"
+                rows += "<td>" + str(element[6]) + "</td>"
+                rows += "</tr>"
+            
+            html_string = """
+                            <body>
+                                <table>
+                                    <tr>
+                                        <th> Element number </th>
+                                        <th> Element code </th>
+                                        <th> Element name </th>
+                                        <th> Element color1 </th>
+                                        <th> Element color2 </th>
+                                        <th> Element color3 </th>
+                                        <th> Radius </th>
+                                    </tr>
+                                    {}
+                                </table>
+                            </body>
+                          """.format(rows);
+
+            self.send_response(200); # OK
+            self.send_header("Content-type", "text/html");
+            self.send_header("Content-length", len(html_string));
+            self.end_headers();
+
+            self.wfile.write(bytes(html_string, "utf-8"));
+        elif self.path == "/form_handler.html":
             # this is specific to 'multipart/form-data' encoding used by POST
             content_length = int(self.headers['Content-Length']);
             body = self.rfile.read(content_length);

@@ -3,719 +3,728 @@
 <html>
     <head> 
         <link rel="stylesheet" type="text/css" href="../styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"> </script>
         <script type="text/javascript" src="../js_files/script.js"> </script>
         <title> Add Elements Page </title> 
     </head>
   <body style="margin-bottom: 20px;">
-    <div class="prompt-form"> </div>
-<div id="main-page">
-    <div id="navigation-bar-placeholder"> </div>
-    <h1 class="heading-periodic-table"> Periodic Table </h1>
+    <div class="prompt-form hidden"> </div>
+    <div id="main-page">
+      <div id="navigation-bar-placeholder"> </div>
 
-    <div class="row-construct">
-      <div class="type"> 
-        <div class="rectangle-nonmetal"> </div>
-        <p class="format-types"> Nonmetal </p>
+      <div class="style-heading"> 
+        <h1 class="heading-periodic-table"> Periodic Table </h1>
+        <button id="question-button" class="material-icons btn-icon"> help </button>
       </div>
-      <div class="type"> 
-        <div class="rectangle-lanthanide"> </div>
-        <p class="format-types"> Lanthanide </p>
+
+      <div class="row-construct">
+        <div class="type"> 
+          <div class="rectangle-nonmetal"> </div>
+          <p class="format-types"> Nonmetal </p>
+        </div>
+        <div class="type"> 
+          <div class="rectangle-lanthanide"> </div>
+          <p class="format-types"> Lanthanide </p>
+        </div>
+        <div class="type"> 
+          <div class="rectangle-halogen"> </div>
+          <p class="format-types">  Halogen </p>
+        </div>
+        <div class="type">             
+          <div class="rectangle-alkali-earth-metal"> </div>
+          <p class="format-types"> Alkaline Earth Metal </p>
+        </div>
+        <div class="type"> 
+          <div class="rectangle-metalloid"> </div>
+          <p class="format-types"> Metalloid </p>
+        </div>
+        <div class="type">             
+          <div class="rectangle-alkali-metal"> </div>
+          <p class="format-types"> Alkali Metal </p>
+        </div>
+        <div class="type"> 
+          <div class="rectangle-actinide"> </div>
+          <p class="format-types"> Actinide </p>
+        </div>
+        <div class="type"> 
+          <div class="rectangle-noble-gas"> </div>
+          <p class="format-types"> Noble Gas </p>
+        </div>
+        <div class="type">             
+          <div class="rectangle-transition-metal"> </div>
+          <p class="format-types"> Transition Metal </p>
+        </div>
+        <div class="type"> 
+          <div class="rectangle-post-transition-metal"> </div>
+          <p class="format-types"> Post Transition Metal </p>
+        </div>
       </div>
-      <div class="type"> 
-        <div class="rectangle-halogen"> </div>
-        <p class="format-types">  Halogen </p>
-      </div>
-      <div class="type">             
-        <div class="rectangle-alkali-earth-metal"> </div>
-        <p class="format-types"> Alkaline Earth Metal </p>
-      </div>
-      <div class="type"> 
-        <div class="rectangle-metalloid"> </div>
-        <p class="format-types"> Metalloid </p>
-      </div>
-      <div class="type">             
-        <div class="rectangle-alkali-metal"> </div>
-        <p class="format-types"> Alkali Metal </p>
-      </div>
-      <div class="type"> 
-        <div class="rectangle-actinide"> </div>
-        <p class="format-types"> Actinide </p>
-      </div>
-      <div class="type"> 
-        <div class="rectangle-noble-gas"> </div>
-        <p class="format-types"> Noble Gas </p>
-      </div>
-      <div class="type">             
-        <div class="rectangle-transition-metal"> </div>
-        <p class="format-types"> Transition Metal </p>
-      </div>
-      <div class="type"> 
-        <div class="rectangle-post-transition-metal"> </div>
-        <p class="format-types"> Post Transition Metal </p>
+
+      <div class="elements">
+        <div class="row">
+          <button class="cell non-metal"> 
+            <p class="p-top"> 1 </p>
+            <span class="span-center"> H </span>
+            <p class="p-bottom"> Hydrogen </p>
+        </button>
+
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+
+          <button class="cell noble-gas"> 
+            <p class="p-top"> 2 </p>
+            <span class="span-center"> He </span>
+            <p class="p-bottom"> Helium </p>
+          </button>
+        </div>
+        <div class="row">
+          <button class="cell alkali-metal"> 
+            <p class="p-top"> 3 </p>
+            <span class="span-center"> Li </span>
+            <p class="p-bottom"> Lithium </p>
+          </button>
+          <button class="cell alkaline-earth-metal"> 
+            <p class="p-top"> 4 </p>
+            <span class="span-center"> Be </span>
+            <p class="p-bottom"> Beryllium </p>
+          </button>
+
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+
+          <button class="cell metalloid"> 
+            <p class="p-top"> 5 </p>
+            <span class="span-center"> B </span>
+            <p class="p-bottom"> Boron </p>
+          </button>
+          <button class="cell non-metal"> 
+            <p class="p-top"> 6 </p>
+            <span class="span-center"> C </span>
+            <p class="p-bottom"> Carbon </p>
+          </button>
+          <button class="cell non-metal"> 
+            <p class="p-top"> 7 </p>
+            <span class="span-center"> N </span>
+            <p class="p-bottom"> Nitrogen </p>
+          </button>
+          <button class="cell non-metal"> 
+            <p class="p-top"> 8 </p>
+            <span class="span-center"> O </span>
+            <p class="p-bottom"> Oxygen </p>
+          </button>
+          <button class="cell halogen"> 
+            <p class="p-top"> 9 </p>
+            <span class="span-center"> F </span>
+            <p class="p-bottom"> Fluorine </p>
+          </button>
+          <button class="cell noble-gas"> 
+            <p class="p-top"> 10 </p>
+            <span class="span-center"> Ne </span>
+            <p class="p-bottom"> Neon </p>
+          </button>   
+        </div>
+        <div class="row">
+          <button class="cell alkali-metal"> 
+            <p class="p-top"> 11 </p>
+            <span class="span-center"> Na </span>
+            <p class="p-bottom"> Sodium </p>
+          </button>
+          <button class="cell alkaline-earth-metal"> 
+            <p class="p-top"> 12 </p>
+            <span class="span-center"> Mg </span>
+            <p class="p-bottom"> Magnesium </p>
+          </button>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 13 </p>
+            <span class="span-center"> Al </span>
+            <p class="p-bottom"> Aluminium </p>
+          </button> 
+          <button class="cell metalloid"> 
+            <p class="p-top"> 14 </p>
+            <span class="span-center"> Si </span>
+            <p class="p-bottom"> Silicon </p>
+          </button>
+          <button class="cell non-metal"> 
+            <p class="p-top"> 15 </p>
+            <span class="span-center"> P </span>
+            <p class="p-bottom"> Phosphorus </p>
+          </button>
+          <button class="cell non-metal"> 
+            <p class="p-top"> 16 </p>
+            <span class="span-center"> S </span>
+            <p class="p-bottom"> Sulfur </p>
+          </button>
+          <button class="cell halogen"> 
+            <p class="p-top"> 17 </p>
+            <span class="span-center"> Cl </span>
+            <p class="p-bottom"> Chlorine </p>
+          </button>
+          <button class="cell noble-gas"> 
+            <p class="p-top"> 18 </p>
+            <span class="span-center"> Ar </span>
+            <p class="p-bottom"> Argon </p>
+          </button>
+        </div>
+        <div class="row">
+          <button class="cell alkali-metal"> 
+            <p class="p-top"> 19 </p>
+            <span class="span-center"> K </span>
+            <p class="p-bottom"> Potassium </p>
+          </button>
+          <button class="cell alkaline-earth-metal"> 
+            <p class="p-top"> 20 </p>
+            <span class="span-center"> Ca </span>
+            <p class="p-bottom"> Calcium </p>
+          </button>
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 21 </p>
+            <span class="span-center"> Sc </span>
+            <p class="p-bottom"> Scandium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 22 </p>
+            <span class="span-center"> Ti </span>
+            <p class="p-bottom"> Titanium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 23 </p>
+            <span class="span-center"> V </span>
+            <p class="p-bottom"> Vanadium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 24 </p>
+            <span class="span-center"> Cr </span>
+            <p class="p-bottom"> Chromium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 25 </p>
+            <span class="span-center"> Mn </span>
+            <p class="p-bottom"> Manganese </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 26 </p>
+            <span class="span-center"> Fe </span>
+            <p class="p-bottom"> Iron </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 27 </p>
+            <span class="span-center"> Co </span>
+            <p class="p-bottom"> Cobalt </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 28 </p>
+            <span class="span-center"> Ni </span>
+            <p class="p-bottom"> Nickel </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 29 </p>
+            <span class="span-center"> Cu </span>
+            <p class="p-bottom"> Copper </p>
+          </button>   
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 30 </p>
+            <span class="span-center"> Zn </span>
+            <p class="p-bottom"> Zinc </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 31 </p>
+            <span class="span-center"> Ga </span>
+            <p class="p-bottom"> Gallium </p>
+          </button> 
+          <button class="cell metalloid"> 
+            <p class="p-top"> 32 </p>
+            <span class="span-center"> Ge </span>
+            <p class="p-bottom"> Germanium </p>
+          </button>
+          <button class="cell metalloid"> 
+            <p class="p-top"> 33 </p>
+            <span class="span-center"> As </span>
+            <p class="p-bottom"> Arsenic </p>
+          </button>
+          <button class="cell non-metal"> 
+            <p class="p-top"> 34 </p>
+            <span class="span-center"> Se </span>
+            <p class="p-bottom"> Selenium </p>
+          </button>
+          <button class="cell halogen"> 
+            <p class="p-top"> 35 </p>
+            <span class="span-center"> Br </span>
+            <p class="p-bottom"> Bromine </p>
+          </button>
+          <button class="cell noble-gas"> 
+            <p class="p-top"> 36 </p>
+            <span class="span-center"> Kr </span>
+            <p class="p-bottom"> Krypton </p>
+          </button>  
+        </div>
+        <div class="row">
+          <button class="cell alkali-metal"> 
+            <p class="p-top"> 37 </p>
+            <span class="span-center"> Rb </span>
+            <p class="p-bottom"> Rubidium </p>
+          </button>
+          <button class="cell alkaline-earth-metal"> 
+            <p class="p-top"> 38 </p>
+            <span class="span-center"> Sr </span>
+            <p class="p-bottom"> Strontium </p>
+          </button>
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 39 </p>
+            <span class="span-center"> Y </span>
+            <p class="p-bottom"> Yttrium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 40 </p>
+            <span class="span-center"> Zr </span>
+            <p class="p-bottom"> Zirconium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 41 </p>
+            <span class="span-center"> Nb </span>
+            <p class="p-bottom"> Niobium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 42 </p>
+            <span class="span-center"> Mo </span>
+            <p class="p-bottom"> Molybdenum </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 43 </p>
+            <span class="span-center"> Tc </span>
+            <p class="p-bottom"> Technetium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 44 </p>
+            <span class="span-center"> Ru </span>
+            <p class="p-bottom"> Ruthenium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 45 </p>
+            <span class="span-center"> Rh </span>
+            <p class="p-bottom"> Rhodium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 46 </p>
+            <span class="span-center"> Pd </span>
+            <p class="p-bottom"> Palladium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 47 </p>
+            <span class="span-center"> Ag </span>
+            <p class="p-bottom"> Silver </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 48 </p>
+            <span class="span-center"> Cd </span>
+            <p class="p-bottom"> Cadmium </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 49 </p>
+            <span class="span-center"> In </span>
+            <p class="p-bottom"> Indium </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 50 </p>
+            <span class="span-center"> Sn </span>
+            <p class="p-bottom"> Tin </p>
+          </button> 
+          <button class="cell metalloid"> 
+            <p class="p-top"> 51 </p>
+            <span class="span-center"> Sb </span>
+            <p class="p-bottom"> Antimony </p>
+          </button>
+          <button class="cell metalloid"> 
+            <p class="p-top"> 52 </p>
+            <span class="span-center"> Te </span>
+            <p class="p-bottom"> Tellurium </p>
+          </button>
+          <button class="cell halogen"> 
+            <p class="p-top"> 53 </p>
+            <span class="span-center"> I </span>
+            <p class="p-bottom"> Iodine </p>
+          </button>
+          <button class="cell noble-gas"> 
+            <p class="p-top"> 54 </p>
+            <span class="span-center"> Xe </span>
+            <p class="p-bottom"> Xenon </p>
+          </button>        
+        </div>
+        <div class="row">
+          <button class="cell alkali-metal"> 
+            <p class="p-top"> 55 </p>
+            <span class="span-center"> Cs </span>
+            <p class="p-bottom"> Caesium </p>
+          </button>
+          <button class="cell alkaline-earth-metal"> 
+            <p class="p-top"> 56 </p>
+            <span class="span-center"> Ba </span>
+            <p class="p-bottom"> Barium </p>
+          </button>
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 57 </p>
+            <span class="span-center"> La </span>
+            <p class="p-bottom"> Lanthanum </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 72 </p>
+            <span class="span-center"> Hf </span>
+            <p class="p-bottom"> Hafnium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 73 </p>
+            <span class="span-center"> Ta </span>
+            <p class="p-bottom"> Tantalum </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 74 </p>
+            <span class="span-center"> W </span>
+            <p class="p-bottom"> Tungsten </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 75 </p>
+            <span class="span-center"> Re </span>
+            <p class="p-bottom"> Rhenium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 76 </p>
+            <span class="span-center"> Os </span>
+            <p class="p-bottom"> Osmium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 77 </p>
+            <span class="span-center"> Ir </span>
+            <p class="p-bottom"> Iridium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 78 </p>
+            <span class="span-center"> Pt </span>
+            <p class="p-bottom"> Platium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 79 </p>
+            <span class="span-center"> Au </span>
+            <p class="p-bottom"> Gold </p>
+          </button>  
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 80 </p>
+            <span class="span-center"> Hg </span>
+            <p class="p-bottom"> Hafnium </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 81 </p>
+            <span class="span-center"> Tl </span>
+            <p class="p-bottom"> Thallium </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 82 </p>
+            <span class="span-center"> Pb </span>
+            <p class="p-bottom"> Lead </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 83 </p>
+            <span class="span-center"> Bi </span>
+            <p class="p-bottom"> Bismuth </p>
+          </button> 
+          <button class="cell metalloid"> 
+            <p class="p-top"> 84 </p>
+            <span class="span-center"> Po </span>
+            <p class="p-bottom"> Polonium </p>
+          </button>
+          <button class="cell halogen"> 
+            <p class="p-top"> 85 </p>
+            <span class="span-center"> At </span>
+            <p class="p-bottom"> Astatine </p>
+          </button> 
+          <button class="cell noble-gas"> 
+            <p class="p-top"> 86 </p>
+            <span class="span-center"> Rn </span>
+            <p class="p-bottom"> Radon </p>
+          </button>           
+        </div>
+        <div class="row">
+          <button class="cell alkali-metal"> 
+            <p class="p-top"> 87 </p>
+            <span class="span-center"> Fr </span>
+            <p class="p-bottom"> Francium </p>
+          </button>
+          <button class="cell alkaline-earth-metal"> 
+            <p class="p-top"> 88 </p>
+            <span class="span-center"> Ra </span>
+            <p class="p-bottom"> Radium </p>
+          </button>
+          <button class="cell actinide"> 
+            <p class="p-top"> 89 </p>
+            <span class="span-center"> Ac </span>
+            <p class="p-bottom"> Actinium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 104 </p>
+            <span class="span-center"> Rf </span>
+            <p class="p-bottom"> Rutherfordium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 105 </p>
+            <span class="span-center"> Db </span>
+            <p class="p-bottom"> Dubnium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 106 </p>
+            <span class="span-center"> Sg </span>
+            <p class="p-bottom"> Seaborgium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 107 </p>
+            <span class="span-center"> Bh </span>
+            <p class="p-bottom"> Bohrium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 108 </p>
+            <span class="span-center"> Hs </span>
+            <p class="p-bottom"> Hassium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 109 </p>
+            <span class="span-center"> Mt </span>
+            <p class="p-bottom"> Meitnerium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 110 </p>
+            <span class="span-center"> Ds </span>
+            <p class="p-bottom"> Darmstadtium </p>
+          </button> 
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 111 </p>
+            <span class="span-center"> Rg </span>
+            <p class="p-bottom"> Roentgenium </p>
+          </button>   
+          <button class="cell transition-metal"> 
+            <p class="p-top"> 112 </p>
+            <span class="span-center"> Cn </span>
+            <p class="p-bottom"> Copernicium </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 113 </p>
+            <span class="span-center"> Nh </span>
+            <p class="p-bottom"> Nihonium </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 114 </p>
+            <span class="span-center"> Fl </span>
+            <p class="p-bottom"> Flerovium </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 115 </p>
+            <span class="span-center"> Mc </span>
+            <p class="p-bottom"> Moscovium </p>
+          </button> 
+          <button class="cell post-transition-metal"> 
+            <p class="p-top"> 116 </p>
+            <span class="span-center"> Lv </span>
+            <p class="p-bottom"> Livermorium </p>
+          </button> 
+          <button class="cell halogen"> 
+            <p class="p-top"> 117 </p>
+            <span class="span-center"> Ts </span>
+            <p class="p-bottom"> Tennessine </p>
+          </button>   
+          <button class="cell noble-gas"> 
+            <p class="p-top"> 118 </p>
+            <span class="span-center"> Og </span>
+            <p class="p-bottom"> Oganesson </p>
+          </button>     
+        </div>
+        
+        <div class="empty-row"></div>
+
+        <div class="row">
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 58 </p>
+            <span class="span-center"> Ce </span>
+            <p class="p-bottom"> Cerium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 59 </p>
+            <span class="span-center"> Pr </span>
+            <p class="p-bottom"> Praseodymium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 60 </p>
+            <span class="span-center"> Nd </span>
+            <p class="p-bottom"> Neodymium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 61 </p>
+            <span class="span-center"> Pm </span>
+            <p class="p-bottom"> Promethium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 62 </p>
+            <span class="span-center"> Sm </span>
+            <p class="p-bottom"> Samarium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 63 </p>
+            <span class="span-center"> Eu </span>
+            <p class="p-bottom"> Europium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 64 </p>
+            <span class="span-center"> Gd </span>
+            <p class="p-bottom"> Gadolium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 65 </p>
+            <span class="span-center"> Tb </span>
+            <p class="p-bottom"> Terbium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 66 </p>
+            <span class="span-center"> Dy </span>
+            <p class="p-bottom"> Dysprosium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 67 </p>
+            <span class="span-center"> Ho </span>
+            <p class="p-bottom"> Holmium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 68 </p>
+            <span class="span-center"> Er </span>
+            <p class="p-bottom"> Erbium </p>
+          </button>  
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 69 </p>
+            <span class="span-center"> Tm </span>
+            <p class="p-bottom"> Thulium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 70 </p>
+            <span class="span-center"> Yb </span>
+            <p class="p-bottom"> Ytterbium </p>
+          </button> 
+          <button class="cell lanthanide"> 
+            <p class="p-top"> 71 </p>
+            <span class="span-center"> Lu </span>
+            <p class="p-bottom"> Lutetium </p>
+          </button> 
+        </div>
+        <div class="row">
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <div class="empty-cell"></div>
+          <button class="cell actinide"> 
+            <p class="p-top"> 90 </p>
+            <span class="span-center"> Th </span>
+            <p class="p-bottom"> Thorium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 91 </p>
+            <span class="span-center"> Pa </span>
+            <p class="p-bottom"> Protactinium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 92 </p>
+            <span class="span-center"> U </span>
+            <p class="p-bottom"> Uranium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 93 </p>
+            <span class="span-center"> Np </span>
+            <p class="p-bottom"> Neptunium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 94 </p>
+            <span class="span-center"> Pu </span>
+            <p class="p-bottom"> Plutonium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 95 </p>
+            <span class="span-center"> Am </span>
+            <p class="p-bottom"> Americium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 96 </p>
+            <span class="span-center"> Cm </span>
+            <p class="p-bottom"> Curium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 97 </p>
+            <span class="span-center"> Bk </span>
+            <p class="p-bottom"> Berkelium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 98 </p>
+            <span class="span-center"> Cf </span>
+            <p class="p-bottom"> Californium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 99 </p>
+            <span class="span-center"> Es </span>
+            <p class="p-bottom"> Einstenium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 100 </p>
+            <span class="span-center"> Fm </span>
+            <p class="p-bottom"> Fermium </p>
+          </button>  
+          <button class="cell actinide"> 
+            <p class="p-top"> 101 </p>
+            <span class="span-center"> Md </span>
+            <p class="p-bottom"> Mendelevium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 102 </p>
+            <span class="span-center"> No </span>
+            <p class="p-bottom"> Nobelium </p>
+          </button> 
+          <button class="cell actinide"> 
+            <p class="p-top"> 103 </p>
+            <span class="span-center"> Lr </span>
+            <p class="p-bottom"> Lawrencium </p>
+          </button>    
+        </div>      
       </div>
     </div>
 
-    <div class="elements">
-      <div class="row">
-        <button class="cell non-metal"> 
-          <p class="p-top"> 1 </p>
-          <span class="span-center"> H </span>
-          <p class="p-bottom"> Hydrogen </p>
-      </button>
+    <h2 class="heading-elements-in-database hidden"> Periodic Table </h2>
+    <div class="table-of-elements hidden"></div>
 
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-
-        <button class="cell noble-gas"> 
-          <p class="p-top"> 2 </p>
-          <span class="span-center"> He </span>
-          <p class="p-bottom"> Helium </p>
-        </button>
-      </div>
-      <div class="row">
-        <button class="cell alkali-metal"> 
-          <p class="p-top"> 3 </p>
-          <span class="span-center"> Li </span>
-          <p class="p-bottom"> Lithium </p>
-        </button>
-        <button class="cell alkaline-earth-metal"> 
-          <p class="p-top"> 4 </p>
-          <span class="span-center"> Be </span>
-          <p class="p-bottom"> Beryllium </p>
-        </button>
-
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-
-        <button class="cell metalloid"> 
-          <p class="p-top"> 5 </p>
-          <span class="span-center"> B </span>
-          <p class="p-bottom"> Boron </p>
-        </button>
-        <button class="cell non-metal"> 
-          <p class="p-top"> 6 </p>
-          <span class="span-center"> C </span>
-          <p class="p-bottom"> Carbon </p>
-        </button>
-        <button class="cell non-metal"> 
-          <p class="p-top"> 7 </p>
-          <span class="span-center"> N </span>
-          <p class="p-bottom"> Nitrogen </p>
-        </button>
-        <button class="cell non-metal"> 
-          <p class="p-top"> 8 </p>
-          <span class="span-center"> O </span>
-          <p class="p-bottom"> Oxygen </p>
-        </button>
-        <button class="cell halogen"> 
-          <p class="p-top"> 9 </p>
-          <span class="span-center"> F </span>
-          <p class="p-bottom"> Fluorine </p>
-        </button>
-        <button class="cell noble-gas"> 
-          <p class="p-top"> 10 </p>
-          <span class="span-center"> Ne </span>
-          <p class="p-bottom"> Neon </p>
-        </button>   
-      </div>
-      <div class="row">
-        <button class="cell alkali-metal"> 
-          <p class="p-top"> 11 </p>
-          <span class="span-center"> Na </span>
-          <p class="p-bottom"> Sodium </p>
-        </button>
-        <button class="cell alkaline-earth-metal"> 
-          <p class="p-top"> 12 </p>
-          <span class="span-center"> Mg </span>
-          <p class="p-bottom"> Magnesium </p>
-        </button>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 13 </p>
-          <span class="span-center"> Al </span>
-          <p class="p-bottom"> Aluminium </p>
-        </button> 
-        <button class="cell metalloid"> 
-          <p class="p-top"> 14 </p>
-          <span class="span-center"> Si </span>
-          <p class="p-bottom"> Silicon </p>
-        </button>
-        <button class="cell non-metal"> 
-          <p class="p-top"> 15 </p>
-          <span class="span-center"> P </span>
-          <p class="p-bottom"> Phosphorus </p>
-        </button>
-        <button class="cell non-metal"> 
-          <p class="p-top"> 16 </p>
-          <span class="span-center"> S </span>
-          <p class="p-bottom"> Sulfur </p>
-        </button>
-        <button class="cell halogen"> 
-          <p class="p-top"> 17 </p>
-          <span class="span-center"> Cl </span>
-          <p class="p-bottom"> Chlorine </p>
-        </button>
-        <button class="cell noble-gas"> 
-          <p class="p-top"> 18 </p>
-          <span class="span-center"> Ar </span>
-          <p class="p-bottom"> Argon </p>
-        </button>
-      </div>
-      <div class="row">
-        <button class="cell alkali-metal"> 
-          <p class="p-top"> 19 </p>
-          <span class="span-center"> K </span>
-          <p class="p-bottom"> Potassium </p>
-        </button>
-        <button class="cell alkaline-earth-metal"> 
-          <p class="p-top"> 20 </p>
-          <span class="span-center"> Ca </span>
-          <p class="p-bottom"> Calcium </p>
-        </button>
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 21 </p>
-          <span class="span-center"> Sc </span>
-          <p class="p-bottom"> Scandium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 22 </p>
-          <span class="span-center"> Ti </span>
-          <p class="p-bottom"> Titanium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 23 </p>
-          <span class="span-center"> V </span>
-          <p class="p-bottom"> Vanadium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 24 </p>
-          <span class="span-center"> Cr </span>
-          <p class="p-bottom"> Chromium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 25 </p>
-          <span class="span-center"> Mn </span>
-          <p class="p-bottom"> Manganese </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 26 </p>
-          <span class="span-center"> Fe </span>
-          <p class="p-bottom"> Iron </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 27 </p>
-          <span class="span-center"> Co </span>
-          <p class="p-bottom"> Cobalt </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 28 </p>
-          <span class="span-center"> Ni </span>
-          <p class="p-bottom"> Nickel </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 29 </p>
-          <span class="span-center"> Cu </span>
-          <p class="p-bottom"> Copper </p>
-        </button>   
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 30 </p>
-          <span class="span-center"> Zn </span>
-          <p class="p-bottom"> Zinc </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 31 </p>
-          <span class="span-center"> Ga </span>
-          <p class="p-bottom"> Gallium </p>
-        </button> 
-        <button class="cell metalloid"> 
-          <p class="p-top"> 32 </p>
-          <span class="span-center"> Ge </span>
-          <p class="p-bottom"> Germanium </p>
-        </button>
-        <button class="cell metalloid"> 
-          <p class="p-top"> 33 </p>
-          <span class="span-center"> As </span>
-          <p class="p-bottom"> Arsenic </p>
-        </button>
-        <button class="cell non-metal"> 
-          <p class="p-top"> 34 </p>
-          <span class="span-center"> Se </span>
-          <p class="p-bottom"> Selenium </p>
-        </button>
-        <button class="cell halogen"> 
-          <p class="p-top"> 35 </p>
-          <span class="span-center"> Br </span>
-          <p class="p-bottom"> Bromine </p>
-        </button>
-        <button class="cell noble-gas"> 
-          <p class="p-top"> 36 </p>
-          <span class="span-center"> Kr </span>
-          <p class="p-bottom"> Krypton </p>
-        </button>  
-      </div>
-      <div class="row">
-        <button class="cell alkali-metal"> 
-          <p class="p-top"> 37 </p>
-          <span class="span-center"> Rb </span>
-          <p class="p-bottom"> Rubidium </p>
-        </button>
-        <button class="cell alkaline-earth-metal"> 
-          <p class="p-top"> 38 </p>
-          <span class="span-center"> Sr </span>
-          <p class="p-bottom"> Strontium </p>
-        </button>
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 39 </p>
-          <span class="span-center"> Y </span>
-          <p class="p-bottom"> Yttrium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 40 </p>
-          <span class="span-center"> Zr </span>
-          <p class="p-bottom"> Zirconium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 41 </p>
-          <span class="span-center"> Nb </span>
-          <p class="p-bottom"> Niobium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 42 </p>
-          <span class="span-center"> Mo </span>
-          <p class="p-bottom"> Molybdenum </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 43 </p>
-          <span class="span-center"> Tc </span>
-          <p class="p-bottom"> Technetium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 44 </p>
-          <span class="span-center"> Ru </span>
-          <p class="p-bottom"> Ruthenium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 45 </p>
-          <span class="span-center"> Rh </span>
-          <p class="p-bottom"> Rhodium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 46 </p>
-          <span class="span-center"> Pd </span>
-          <p class="p-bottom"> Palladium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 47 </p>
-          <span class="span-center"> Ag </span>
-          <p class="p-bottom"> Silver </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 48 </p>
-          <span class="span-center"> Cd </span>
-          <p class="p-bottom"> Cadmium </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 49 </p>
-          <span class="span-center"> In </span>
-          <p class="p-bottom"> Indium </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 50 </p>
-          <span class="span-center"> Sn </span>
-          <p class="p-bottom"> Tin </p>
-        </button> 
-        <button class="cell metalloid"> 
-          <p class="p-top"> 51 </p>
-          <span class="span-center"> Sb </span>
-          <p class="p-bottom"> Antimony </p>
-        </button>
-        <button class="cell metalloid"> 
-          <p class="p-top"> 52 </p>
-          <span class="span-center"> Te </span>
-          <p class="p-bottom"> Tellurium </p>
-        </button>
-        <button class="cell halogen"> 
-          <p class="p-top"> 53 </p>
-          <span class="span-center"> I </span>
-          <p class="p-bottom"> Iodine </p>
-        </button>
-        <button class="cell noble-gas"> 
-          <p class="p-top"> 54 </p>
-          <span class="span-center"> Xe </span>
-          <p class="p-bottom"> Xenon </p>
-        </button>        
-      </div>
-      <div class="row">
-        <button class="cell alkali-metal"> 
-          <p class="p-top"> 55 </p>
-          <span class="span-center"> Cs </span>
-          <p class="p-bottom"> Caesium </p>
-        </button>
-        <button class="cell alkaline-earth-metal"> 
-          <p class="p-top"> 56 </p>
-          <span class="span-center"> Ba </span>
-          <p class="p-bottom"> Barium </p>
-        </button>
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 57 </p>
-          <span class="span-center"> La </span>
-          <p class="p-bottom"> Lanthanum </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 72 </p>
-          <span class="span-center"> Hf </span>
-          <p class="p-bottom"> Hafnium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 73 </p>
-          <span class="span-center"> Ta </span>
-          <p class="p-bottom"> Tantalum </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 74 </p>
-          <span class="span-center"> W </span>
-          <p class="p-bottom"> Tungsten </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 75 </p>
-          <span class="span-center"> Re </span>
-          <p class="p-bottom"> Rhenium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 76 </p>
-          <span class="span-center"> Os </span>
-          <p class="p-bottom"> Osmium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 77 </p>
-          <span class="span-center"> Ir </span>
-          <p class="p-bottom"> Iridium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 78 </p>
-          <span class="span-center"> Pt </span>
-          <p class="p-bottom"> Platium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 79 </p>
-          <span class="span-center"> Au </span>
-          <p class="p-bottom"> Gold </p>
-        </button>  
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 80 </p>
-          <span class="span-center"> Hg </span>
-          <p class="p-bottom"> Hafnium </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 81 </p>
-          <span class="span-center"> Tl </span>
-          <p class="p-bottom"> Thallium </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 82 </p>
-          <span class="span-center"> Pb </span>
-          <p class="p-bottom"> Lead </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 83 </p>
-          <span class="span-center"> Bi </span>
-          <p class="p-bottom"> Bismuth </p>
-        </button> 
-        <button class="cell metalloid"> 
-          <p class="p-top"> 84 </p>
-          <span class="span-center"> Po </span>
-          <p class="p-bottom"> Polonium </p>
-        </button>
-        <button class="cell halogen"> 
-          <p class="p-top"> 85 </p>
-          <span class="span-center"> At </span>
-          <p class="p-bottom"> Astatine </p>
-        </button> 
-        <button class="cell noble-gas"> 
-          <p class="p-top"> 86 </p>
-          <span class="span-center"> Rn </span>
-          <p class="p-bottom"> Radon </p>
-        </button>           
-      </div>
-      <div class="row">
-        <button class="cell alkali-metal"> 
-          <p class="p-top"> 87 </p>
-          <span class="span-center"> Fr </span>
-          <p class="p-bottom"> Francium </p>
-        </button>
-        <button class="cell alkaline-earth-metal"> 
-          <p class="p-top"> 88 </p>
-          <span class="span-center"> Ra </span>
-          <p class="p-bottom"> Radium </p>
-        </button>
-        <button class="cell actinide"> 
-          <p class="p-top"> 89 </p>
-          <span class="span-center"> Ac </span>
-          <p class="p-bottom"> Actinium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 104 </p>
-          <span class="span-center"> Rf </span>
-          <p class="p-bottom"> Rutherfordium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 105 </p>
-          <span class="span-center"> Db </span>
-          <p class="p-bottom"> Dubnium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 106 </p>
-          <span class="span-center"> Sg </span>
-          <p class="p-bottom"> Seaborgium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 107 </p>
-          <span class="span-center"> Bh </span>
-          <p class="p-bottom"> Bohrium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 108 </p>
-          <span class="span-center"> Hs </span>
-          <p class="p-bottom"> Hassium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 109 </p>
-          <span class="span-center"> Mt </span>
-          <p class="p-bottom"> Meitnerium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 110 </p>
-          <span class="span-center"> Ds </span>
-          <p class="p-bottom"> Darmstadtium </p>
-        </button> 
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 111 </p>
-          <span class="span-center"> Rg </span>
-          <p class="p-bottom"> Roentgenium </p>
-        </button>   
-        <button class="cell transition-metal"> 
-          <p class="p-top"> 112 </p>
-          <span class="span-center"> Cn </span>
-          <p class="p-bottom"> Copernicium </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 113 </p>
-          <span class="span-center"> Nh </span>
-          <p class="p-bottom"> Nihonium </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 114 </p>
-          <span class="span-center"> Fl </span>
-          <p class="p-bottom"> Flerovium </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 115 </p>
-          <span class="span-center"> Mc </span>
-          <p class="p-bottom"> Moscovium </p>
-        </button> 
-        <button class="cell post-transition-metal"> 
-          <p class="p-top"> 116 </p>
-          <span class="span-center"> Lv </span>
-          <p class="p-bottom"> Livermorium </p>
-        </button> 
-        <button class="cell halogen"> 
-          <p class="p-top"> 117 </p>
-          <span class="span-center"> Ts </span>
-          <p class="p-bottom"> Tennessine </p>
-        </button>   
-        <button class="cell noble-gas"> 
-          <p class="p-top"> 118 </p>
-          <span class="span-center"> Og </span>
-          <p class="p-bottom"> Oganesson </p>
-        </button>     
-      </div>
-      
-      <div class="empty-row"></div>
-
-      <div class="row">
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 58 </p>
-          <span class="span-center"> Ce </span>
-          <p class="p-bottom"> Cerium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 59 </p>
-          <span class="span-center"> Pr </span>
-          <p class="p-bottom"> Praseodymium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 60 </p>
-          <span class="span-center"> Nd </span>
-          <p class="p-bottom"> Neodymium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 61 </p>
-          <span class="span-center"> Pm </span>
-          <p class="p-bottom"> Promethium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 62 </p>
-          <span class="span-center"> Sm </span>
-          <p class="p-bottom"> Samarium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 63 </p>
-          <span class="span-center"> Eu </span>
-          <p class="p-bottom"> Europium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 64 </p>
-          <span class="span-center"> Gd </span>
-          <p class="p-bottom"> Gadolium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 65 </p>
-          <span class="span-center"> Tb </span>
-          <p class="p-bottom"> Terbium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 66 </p>
-          <span class="span-center"> Dy </span>
-          <p class="p-bottom"> Dysprosium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 67 </p>
-          <span class="span-center"> Ho </span>
-          <p class="p-bottom"> Holmium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 68 </p>
-          <span class="span-center"> Er </span>
-          <p class="p-bottom"> Erbium </p>
-        </button>  
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 69 </p>
-          <span class="span-center"> Tm </span>
-          <p class="p-bottom"> Thulium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 70 </p>
-          <span class="span-center"> Yb </span>
-          <p class="p-bottom"> Ytterbium </p>
-        </button> 
-        <button class="cell lanthanide"> 
-          <p class="p-top"> 71 </p>
-          <span class="span-center"> Lu </span>
-          <p class="p-bottom"> Lutetium </p>
-        </button> 
-      </div>
-      <div class="row">
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <div class="empty-cell"></div>
-        <button class="cell actinide"> 
-          <p class="p-top"> 90 </p>
-          <span class="span-center"> Th </span>
-          <p class="p-bottom"> Thorium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 91 </p>
-          <span class="span-center"> Pa </span>
-          <p class="p-bottom"> Protactinium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 92 </p>
-          <span class="span-center"> U </span>
-          <p class="p-bottom"> Uranium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 93 </p>
-          <span class="span-center"> Np </span>
-          <p class="p-bottom"> Neptunium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 94 </p>
-          <span class="span-center"> Pu </span>
-          <p class="p-bottom"> Plutonium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 95 </p>
-          <span class="span-center"> Am </span>
-          <p class="p-bottom"> Americium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 96 </p>
-          <span class="span-center"> Cm </span>
-          <p class="p-bottom"> Curium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 97 </p>
-          <span class="span-center"> Bk </span>
-          <p class="p-bottom"> Berkelium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 98 </p>
-          <span class="span-center"> Cf </span>
-          <p class="p-bottom"> Californium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 99 </p>
-          <span class="span-center"> Es </span>
-          <p class="p-bottom"> Einstenium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 100 </p>
-          <span class="span-center"> Fm </span>
-          <p class="p-bottom"> Fermium </p>
-        </button>  
-        <button class="cell actinide"> 
-          <p class="p-top"> 101 </p>
-          <span class="span-center"> Md </span>
-          <p class="p-bottom"> Mendelevium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 102 </p>
-          <span class="span-center"> No </span>
-          <p class="p-bottom"> Nobelium </p>
-        </button> 
-        <button class="cell actinide"> 
-          <p class="p-top"> 103 </p>
-          <span class="span-center"> Lr </span>
-          <p class="p-bottom"> Lawrencium </p>
-        </button>    
-      </div>      
-    </div>
-</div>
   </body>
 </html>
