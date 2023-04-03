@@ -1,22 +1,17 @@
 <body id="promt-element-form">
-<h1> <u> Enter attributes of an element </u> </h1>
+    <div class="align-cancel">
+        <h1> <u> Enter attributes of an element </u> </h1>
+        <button onclick="performActionForClose()" class="material-symbols-outlined cancel-icon"> cancel </button>
+        <script>
+            function performActionForClose() {
+                $(".prompt-form").addClass("hidden");
+                $("#main-page").removeClass("blur");
+            }
+        </script>
+    </div>
+
     <br>
     <form action="#" enctype="multipart/form-data" method="post"> 
-        <!-- <div>  
-            <label for="body"> Element number: </label>
-            <p id="num"></p>
-        </div>
-
-        <div>  
-            <label for="body"> Element code: </label>
-            <p id="code"></p>
-        </div>
-
-        <div>  
-            <label for="body"> Element name: </label>
-            <p id="nam"></p>
-        </div> -->
-
         <div>  
             <label for="body"> Enter radius: </label>
             <input type="number" id="radius" name="radius"/>

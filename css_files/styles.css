@@ -200,7 +200,7 @@ a {
 
 .heading-periodic-table {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 7vh;
+  font-size: 5.5vh;
   color: #23435e;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -210,6 +210,11 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.heading-periodic-table:hover {
+  border: 1px solid #23435e;
+  cursor: pointer;
 }
 
 .btn-icon {
@@ -312,6 +317,20 @@ a {
   z-index: 10;
 }
 
+.help-guide {
+  position: absolute;
+  top: 30vh;
+  left: 35%;
+  max-width: 30vw;
+  background-color: #23435e;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #23435e;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  z-index: 10;
+}
+
 .style-enter-button {
   background-color: #ddf0ff;
   font-size: larger;
@@ -335,9 +354,56 @@ input {
 
 .heading-elements-in-database {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  font-size: 5vh;
+  font-size: 5.5vh;
   color: #23435e;
-  margin-top: 100px;
+  padding-top: 7vh;
   margin-top: 10px;
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.table-of-elements {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 1.8vh;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  background-color: #23435e;
+  color: white;
+  border-color: white;
+  font-size: 2.5vh;
+  padding: 2px;
+}
+
+td {
+  background-color: white;
+  color: #23435e;
+  border-color: #23435e;
+  padding: 1px;
+}
+
+.align-cancel {
+  display: flex;
+  flex-direction: row;
+}
+
+.cancel-icon {
+  margin-top: 4px;
+  margin-left: 1.7vw;
+  font-size: 35px !important;
+  background-color: #23435e;
+  border: none;
+  color: #ddf0ff;
+}
+
+.style-help-guide {
+  text-align: justify;
 }

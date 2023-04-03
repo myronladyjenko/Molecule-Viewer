@@ -44,7 +44,7 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
             self.end_headers();
 
             self.wfile.write(bytes(svgImage, "utf-8"));
-        elif "styles.css" in self.path:  
+        elif ".css" in self.path:  
             style = open("." + self.path).read();
         
             # send the .css file to the webserver
@@ -80,7 +80,7 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
             self.wfile.write(bytes("404: not found", "utf-8"));
 
     def do_POST(self):
-        if self.path == "/elements_addition.html":
+        if self.path == "/elements_manipulation.html":
             # this is specific to 'multipart/form-data' encoding used by POST
             content_length = int(self.headers['Content-Length']);
             body = self.rfile.read(content_length);
@@ -88,13 +88,22 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
             # convert POST content into a dictionary
             postvars = urllib.parse.parse_qs(body.decode('utf-8'));
 
-            elementsTuple = (int(postvars['number'][0]), postvars['code'][0], postvars['name'][0], postvars['color1'][0], postvars['color2'][0], postvars['color3'][0], int(postvars['radius'][0]));
-            db['Elements'] = elementsTuple;
+            elementsTuple = {};
+            if (postvars['value'][0] == '1'):
+                elementsTuple = (int(postvars['number'][0]), postvars['code'][0], postvars['name'][0], postvars['color1'][0], postvars['color2'][0], postvars['color3'][0], int(postvars['radius'][0]));
+                db['Elements'] = elementsTuple;
+            elif (postvars['value'][0] == '-1'):
+                db.connection.execute("DELETE FROM Elements WHERE ELEMENT_CODE=(?);", (str(postvars['code'][0]),));
+            
 
-            elementsData = db.connection.execute(("SELECT * FROM Elements")).fetchall();
-            print(elementsData);
+            elementsData = db.connection.execute(("SELECT * FROM Elements;")).fetchall();
+            extraInfo = "";
+
             rows = ""
             for element in elementsData:
+                if (postvars['value'][0] == '0'):
+                    extraInfo = extraInfo + element[1] + " ";
+
                 rows += "<tr>"
                 rows += "<td>" + str(element[0]) + "</td>"
                 rows += "<td>" + element[1] + "</td>"
@@ -107,7 +116,7 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
             
             html_string = """
                             <body>
-                                <table>
+                                <table style="width:90%">
                                     <tr>
                                         <th> Element number </th>
                                         <th> Element code </th>
@@ -121,6 +130,9 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
                                 </table>
                             </body>
                           """.format(rows);
+            
+            if (postvars['value'][0] == '0'):
+                html_string = extraInfo + "\n" + html_string;
 
             self.send_response(200); # OK
             self.send_header("Content-type", "text/html");

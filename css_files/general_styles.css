@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    background-color: #ddf0ff;
+}
+
+ul {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #23435e;
+  z-index: 1;
+}
+
+li {
+  padding: 2vh 2vw;
+}
+
+.nav-space {
+  flex: auto;
+}
+
+a {
+  text-decoration: none;
+  font-size: 19px;
+  color: white;
+}
