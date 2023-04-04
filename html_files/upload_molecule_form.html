@@ -1,0 +1,56 @@
+<body> 
+    <div class="align-cancel">
+        <h1> <u> Upload a file </u> </h1>
+
+        <p class="nav-space"> </p>
+        <button onclick="performActionForClose()" class="material-symbols-outlined cancel-icon"> cancel </button>
+        <script>
+            function performActionForClose() {
+                $(".prompt-form").addClass("hidden");
+                $("#main-page").removeClass("blur");
+            }
+        </script>
+    </div>
+
+    <br>
+
+    <form enctype="multipart/form-data" method="post"> 
+        <div id="pop-up" title="Error loading a file" style="display: none;">
+            <p id="pop-up-message"></p>
+        </div>
+
+        <div style="display: flex; flex-direction: row; max-width: 500px;">
+            <label for="sdf_file" class="my-file-upload"> Choose a file: </label>
+            <input type="file" id="sdf_file" name="filename"/>
+            <div id="file-name" class="style-file-name"> Empty </div>
+            <script>
+                $("#sdf_file").on('change', function() {
+                    const uploadedFile = $("#sdf_file").val();
+                    const name = uploadedFile.split('\\').pop();
+
+                    if (name.includes(".sdf")) {
+                        $("#file-name").text(name);
+                    } else {
+                        $("#pop-up-message").text("Please a corretc file (.sdf)");
+                        $("#pop-up").dialog({
+                            width: 400,
+                            height: 300,
+                            buttons: {
+                                close: function() {
+                                    $(this).dialog("close");
+                                }
+                            }
+                        });
+                    }
+                });
+            </script>
+        </div>
+
+        <h3 style="padding-bottom: 18px;">
+            <p> <br> Enter molecule name: <input style="font-size: large;" type="text" id="mol_name" name="name"> </p>
+        </h3>
+
+        <label for="mol_up" class="my-file-upload"> Upload </label>
+        <input id="mol_up" type="submit" value="Upload"/>
+    </form>
+</body>

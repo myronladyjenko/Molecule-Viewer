@@ -1,0 +1,17 @@
+<body id="help-form">
+    <div class="align-cancel">
+        <h1> <u> Help Guide </u> </h1>
+
+        <p class="nav-space"> </p>
+        <button onclick="performActionForClose()" class="material-symbols-outlined cancel-icon"> cancel </button>
+        <script>
+            function performActionForClose() {
+                $(".help-guide").addClass("hidden");
+                $("#main-page").removeClass("blur");
+            }
+        </script>
+    </div>
+    
+    <p class="style-help-guide"> <br> To upload a molecule into a system, please click on the "Upload Molecule" button and provide and sdf file.
+    </p>
+</body>

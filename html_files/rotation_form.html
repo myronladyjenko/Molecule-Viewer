@@ -1,0 +1,23 @@
+<body> 
+    <div class="align-cancel">
+        <h1 style="padding-bottom: 10px;"> <u> Upload a file </u> </h1>
+
+        <p class="nav-space"> </p>
+        <button onclick="performActionForClose()" class="material-symbols-outlined cancel-icon" style="margin-top: 0px !important;"> cancel </button>
+        <script>
+            function performActionForClose() {
+                $(".prompt-form").addClass("hidden");
+                $("#main-page").removeClass("blur");
+            }
+        </script>
+    </div>
+
+    <form action="molecule" enctype="multipart/form-data" method="post"> 
+        <h3 style="padding-bottom: 10px;"> <br> Enter the rotation for the molecule <br> </h3>
+        <p> <label> Roll: </label> <input type="number" id="roll" name="roll"> </p>
+        <p> <label> Pitch: </label> <input type="number" id="pitch" name="pitch"> </p>
+        <p> <label> Yaw: </label> <input type="number" id="yaw" name="yaw"> </p>
+
+        <p> <input type="submit" value="Upload"/> </p> 
+    </form>
+</body>
