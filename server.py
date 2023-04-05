@@ -5,6 +5,7 @@ import MolDisplay;
 import re;
 import molsql;
 import urllib;
+import molecule;
 
 db = molsql.Database(reset=False);
 db.create_tables();
@@ -80,12 +81,148 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
             self.wfile.write(bytes("404: not found", "utf-8"));
 
     def do_POST(self):
-        if self.path == "/elements_manipulation.html":
-            # this is specific to 'multipart/form-data' encoding used by POST
+        if self.path == "/post_molecule.html":
             content_length = int(self.headers['Content-Length']);
             body = self.rfile.read(content_length);
 
-            # convert POST content into a dictionary
+            postvars = urllib.parse.parse_qs(body.decode('utf-8'));
+
+            MolDisplay.radius = db.radius();
+            MolDisplay.element_name = db.element_name();
+
+            header = MolDisplay.header;
+            arr = header.split(">");
+            MolDisplay.header = arr[0] + ">" + db.radial_gradients();
+            mol = db.load_mol(postvars['name'][0]);
+
+            if (postvars['value'][0] == '-1'):
+                mx = molecule.mx_wrapper(int(postvars['x_value'][0]), int(postvars['y_value'][0]), int(postvars['z_value'][0]));
+                mol.xform(mx.xform_matrix);
+            mol.sort();
+
+            svg = "";
+            while (True):
+                try:
+                    svg = mol.svg();
+                    break;
+                except KeyError as e:
+                    error = str(e);
+                    errorElem = error.replace("'", "");
+                    MolDisplay.radius[errorElem] = 30;
+                    MolDisplay.element_name[errorElem] = 'defaultElem';
+                    MolDisplay.header += f"""<radialGradient id="defaultElem" cx="-50%" cy="-50%" r="220%" fx="20%" fy="20%">
+                                                <stop offset="0%" stop-color="#6F2DA8" />
+                                                <stop offset="50%" stop-color="#6F2DA8" />
+                                                <stop offset="100%" stop-color="#6F2DA8" />
+                                            </radialGradient>\n""";
+            
+            self.send_response(200); # OK
+            self.send_header("Content-type", "text/html");
+            self.send_header("Content-length", len(svg));
+            self.end_headers();
+
+            self.wfile.write(bytes(svg, "utf-8"));
+        elif self.path == "/molecule_manipulation.html":
+            check = False;
+            content_length = int(self.headers['Content-Length']);
+            body = self.rfile.read(content_length);
+
+            postvars = urllib.parse.parse_qs(body.decode('utf-8'));
+
+            if (postvars['value'][0] == '1'):
+                molNames = db.connection.execute(("SELECT Molecules.NAME FROM Molecules;")).fetchall();
+                for i in range(len(molNames)):
+                    if (str(postvars['name'][0]) == str(molNames[i][0])):
+                        check = True;
+
+            if (check == False):
+                if (postvars['value'][0] == '1'):
+                    db.add_molecule(postvars['name'][0], io.StringIO(postvars['fileContents'][0]));
+                elif (postvars['value'][0] == '-1'):
+                    # Here we will delete the molecule accordingly
+                    query = """DELETE FROM Atoms WHERE EXISTS (SELECT * FROM MoleculeAtom INNER JOIN Molecules ON
+                                Molecules.MOLECULE_ID = MoleculeAtom.MOLECULE_ID WHERE Molecules.NAME=(?) AND MoleculeAtom.ATOM_ID=Atoms.ATOM_ID);"""
+                    db.connection.execute(query, (str(postvars['name'][0]),));
+
+                    query = """DELETE FROM Bonds WHERE EXISTS (SELECT * FROM MoleculeBond INNER JOIN Molecules ON
+                                Molecules.MOLECULE_ID = MoleculeBond.MOLECULE_ID WHERE Molecules.NAME=(?) AND MoleculeBond.BOND_ID=Bonds.BOND_ID);"""
+                    db.connection.execute(query, (str(postvars['name'][0]),));
+
+                    molId = (db.connection.execute("SELECT MOLECULE_ID FROM Molecules WHERE Molecules.NAME=(?)", (str(postvars['name'][0]),)).fetchall())[0][0];
+                    query = """DELETE FROM MoleculeBond WHERE BOND_ID=(?);"""
+                    db.connection.execute(query, (molId,));
+                    query = """DELETE FROM MoleculeAtom WHERE ATOM_ID=(?);"""
+                    db.connection.execute(query, (molId,));
+
+                    db.connection.execute("DELETE FROM Molecules WHERE NAME=(?);", (str(postvars['name'][0]),));
+
+            moleculeNames = db.connection.execute(("SELECT Molecules.NAME FROM Molecules;")).fetchall();
+            rows = ""
+            error_str="";
+            for i in range(len(moleculeNames)):
+                dataAtoms = db.connection.execute("""SELECT Atoms.ELEMENT_CODE FROM Molecules 
+                                                    INNER JOIN MoleculeAtom ON Molecules.MOLECULE_ID=MoleculeAtom.MOLECULE_ID 
+                                                    INNER JOIN Atoms ON MoleculeAtom.ATOM_ID=Atoms.ATOM_ID WHERE Molecules.NAME=(?)""", (moleculeNames[i][0],)).fetchall();
+                
+                dataBonds = db.connection.execute("""SELECT Bonds.A1 FROM Molecules 
+                                                    INNER JOIN MoleculeBond ON Molecules.MOLECULE_ID=MoleculeBond.MOLECULE_ID 
+                                                    INNER JOIN Bonds ON MoleculeBond.BOND_ID=Bonds.BOND_ID WHERE Molecules.NAME=(?)""", (moleculeNames[i][0],)).fetchall(); 
+
+                viewButton = """<button id="view{}" class="material-symbols-outlined view-btn-icon"> visibility </button>""".format(i);
+                deleteButton = """<button id="view{}" class="material-symbols-outlined delete-btn-icon"> delete </button>""".format(i);
+                hiddenDiv = """<tr class="hidden">
+                                    <td colspan="5">
+                                        <div style="display: flex, flex-direction: column">
+                                            <div id="rotations"> </div>
+                                            <div class="mol-display-div"></div>
+                                        </div>
+                                    </td>
+                                </tr>"""
+              
+                if (len(dataAtoms) == 0 or len(dataBonds) == 0):
+                    error_str += "2" + "\n";
+
+                rows += "<tr>";
+                rows += "<td>" + viewButton + "</td>";
+                rows += "<td>" + moleculeNames[i][0] + "</td>";
+                rows += "<td>" + str(len(dataAtoms)) + "</td>";
+                rows += "<td>" + str(len(dataBonds)) + "</td>";
+                rows += "<td>" + deleteButton + "</td>";
+                rows += "</tr>";
+                rows += hiddenDiv;
+            
+            html_string = """
+                            <body>
+                                <table>
+                                    <tr>
+                                        <th> Display </th>                                       
+                                        <th> Molecule name </th>
+                                        <th> Number of atoms </th>
+                                        <th> Number of Bonds </th>
+                                        <th> Remove </th>
+                                    </tr>
+                                    {}
+                                </table>
+                            </body>
+                          """.format(rows);
+            
+            if (check == True and postvars['value'][0] == '1'):
+                html_string = "1" + "\n" + html_string;
+            elif (postvars['value'][0] == '1' and error_str == ""):
+                html_string = "0" + "\n" + html_string; 
+            elif (postvars['value'][0] == '1'):
+                html_string = error_str + html_string;
+
+            self.send_response(200); # OK
+            self.send_header("Content-type", "text/html");
+            self.send_header("Content-length", len(html_string));
+            self.end_headers();
+
+            self.wfile.write(bytes(html_string, "utf-8"));
+        elif self.path == "/elements_manipulation.html":
+            content_length = int(self.headers['Content-Length']);
+            body = self.rfile.read(content_length);
+
             postvars = urllib.parse.parse_qs(body.decode('utf-8'));
 
             elementsTuple = {};
@@ -94,7 +231,6 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
                 db['Elements'] = elementsTuple;
             elif (postvars['value'][0] == '-1'):
                 db.connection.execute("DELETE FROM Elements WHERE ELEMENT_CODE=(?);", (str(postvars['code'][0]),));
-            
 
             elementsData = db.connection.execute(("SELECT * FROM Elements;")).fetchall();
             extraInfo = "";
@@ -104,26 +240,26 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
                 if (postvars['value'][0] == '0'):
                     extraInfo = extraInfo + element[1] + " ";
 
-                rows += "<tr>"
-                rows += "<td>" + str(element[0]) + "</td>"
-                rows += "<td>" + element[1] + "</td>"
-                rows += "<td>" + element[2] + "</td>"
-                rows += "<td>" + element[3] + "</td>"
-                rows += "<td>" + element[4] + "</td>"
-                rows += "<td>" + element[5] + "</td>"
-                rows += "<td>" + str(element[6]) + "</td>"
-                rows += "</tr>"
+                rows += "<tr>";
+                rows += "<td>" + str(element[0]) + "</td>";
+                rows += "<td>" + element[1] + "</td>";
+                rows += "<td>" + element[2] + "</td>";
+                rows += "<td>" + element[3] + "</td>";
+                rows += "<td>" + element[4] + "</td>";
+                rows += "<td>" + element[5] + "</td>";
+                rows += "<td>" + str(element[6]) + "</td>";
+                rows += "</tr>";
             
             html_string = """
                             <body>
-                                <table style="width:90%">
+                                <table>
                                     <tr>
                                         <th> Element number </th>
                                         <th> Element code </th>
                                         <th> Element name </th>
-                                        <th> Element color1 </th>
-                                        <th> Element color2 </th>
-                                        <th> Element color3 </th>
+                                        <th> Element color #1 </th>
+                                        <th> Element color #2 </th>
+                                        <th> Element color #3 </th>
                                         <th> Radius </th>
                                     </tr>
                                     {}
@@ -155,59 +291,6 @@ class MyHTTPRequestHandler (BaseHTTPRequestHandler):
             self.end_headers();
 
             self.wfile.write(bytes(form, "utf-8"));
-        elif self.path == "/molecule":
-            # read the data from the server
-            contentLength = int(self.headers.get('Content-length'));
-            data_obtained = self.rfile.read(contentLength);
-            temp_data = data_obtained;
-
-            try:
-                arr = data_obtained.decode('utf-8').split("\n");
-            except UnicodeDecodeError:
-                self.send_response(404);
-                self.end_headers();
-                self.wfile.write(bytes("404: not found", "utf-8"));
-                return;
-
-            # parse data obtained from the server to find correct information about rotations
-            pattern = re.compile(r'^(Content-Disposition: form-data; name="(?:roll|pitch|yaw)"(?:\n|\r\n?)(?:\n|\r\n)(?:[+-]?\d+\.?[0]?\s+)(?:\n?|\r\n?))', re.MULTILINE);
-            matchObject = pattern.findall(temp_data.decode('utf-8'));
- 
-            rot = { 'roll': 0,
-		            'pitch': 0,
-		            'yaw': 0,
-	              };
-
-            for index in range(len(matchObject)):
-                getRot = re.search(r'roll', str(matchObject[index]));
-                if getRot != None:
-                    rot['roll'] = searchNum(matchObject[index])
-                getRot = re.search(r'pitch', str(matchObject[index]));
-                if getRot != None:
-                    rot['pitch'] = searchNum(matchObject[index]);   
-                getRot = re.search(r'yaw', str(matchObject[index]));
-                if getRot != None:
-                    rot['yaw'] = searchNum(matchObject[index]);
-
-            # create a molecule and populate it
-            mol = MolDisplay.Molecule();
-            str_to_display = io.BytesIO(data_obtained);
-            wrapper = io.TextIOWrapper(str_to_display, encoding = 'utf-8');
-            mol.parse(wrapper);
-            mol.sort();
-
-            if rot['roll'] >= 0 and rot['pitch'] >= 0 and rot['yaw'] >= 0: 
-                mol.rotation(rot['roll'], rot['pitch'], rot['yaw']);
-                mol.sort();
-
-            # send response back and display the molecule
-            self.send_response(200);
-            self.send_header("Content-type", "image/svg+xml");
-            self.send_header("Content-length", len(mol.svg()));
-            self.end_headers();
-
-            self.wfile.write(bytes(mol.svg(), "utf-8"));
-            return;
         else:
             self.send_response(404);
             self.end_headers();

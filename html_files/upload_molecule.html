@@ -3,25 +3,44 @@
     <head> 
         <link rel="stylesheet" type="text/css" href="../css_files/upload_molecule_styles.css">
         <link rel="stylesheet" type="text/css" href="../css_files/general_styles.css">
+
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"> </script>
-        <script type="text/javascript" src="../js_files/script.js"> </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+
+        <script type="text/javascript" src="../js_files/general_script.js"> </script>
+        <script type="text/javascript" src="../js_files/upload_mol.js"> </script>
         <title> Upload Molecule Page </title> 
     </head>
   <body style="margin-bottom: 20px;">
-    <div id="navigation-bar-placeholder"> </div>
+    <div class="prompt-form hidden"> </div>
+    <div class="help-guide hidden"> </div>
 
-    <h1> File Upload </h1>
-        <form action="molecule" enctype="multipart/form-data" method="post"> 
-            <p> <input type="file" id="sdf_file" name="filename"/> </p>
+    <div class="background-image"> 
+      <div class="blur-image"> </div>
+    </div>
 
-            <h3> Enter the rotation for the molecule </h3>
-            <p> <label> Roll:&nbsp  </label> <input type="number" id="roll" name="roll"> </p>
-            <p> <label> Pitch: </label> <input type="number" id="pitch" name="pitch"> </p>
-            <p> <label> Yaw:&nbsp </label> <input type="number" id="yaw" name="yaw"> </p>
+    <div id="main-page">
+        <div id="pop-up-main" title="Sucess!" style="display: none;">
+          <p id="pop-up-main-message"></p>
+        </div>
 
-            <p> <input type="submit" value="Upload"/> </p> 
-        </form>
+        <div id="navigation-bar-placeholder"> </div>
+
+          <div class="style-heading"> 
+            <h2 class="heading-molecules-in-database"> Uploaded molecules </h2>
+            <button id="question-button" class="material-icons btn-icon" style="margin-bottom: 5px !important;"> help </button>
+          </div>
+          <div class="table-of-molecules"></div>
+            
+          <div class="style-heading"> 
+            <button class="heading-molecule-upload"> Upload molecule </button>
+          </div> 
+    </div>
   </body>
 </html>

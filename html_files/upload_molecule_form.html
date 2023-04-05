@@ -8,6 +8,7 @@
             function performActionForClose() {
                 $(".prompt-form").addClass("hidden");
                 $("#main-page").removeClass("blur");
+                $(".background-image").removeClass("blur");
             }
         </script>
     </div>
@@ -31,10 +32,8 @@
                     if (name.includes(".sdf")) {
                         $("#file-name").text(name);
                     } else {
-                        $("#pop-up-message").text("Please a corretc file (.sdf)");
+                        $("#pop-up-message").text("Please, be sure to select a correct file (.sdf)");
                         $("#pop-up").dialog({
-                            width: 400,
-                            height: 300,
                             buttons: {
                                 close: function() {
                                     $(this).dialog("close");

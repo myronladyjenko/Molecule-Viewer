@@ -46,7 +46,7 @@ class Bond:
 		y4 = bond.y1 * 100 - bond.dx * 10 * (-1) + offsety;
 		return ' <polygon points="%.2f,%.2f %.2f,%.2f %.2f,%.2f %.2f,%.2f" fill="green"/>\n' % (x1, y1, x2, y2, x3, y3, x4, y4);
 
-	# Create svg string to display bonds for Nightmare mode
+# Create svg string to display bonds for Nightmare mode
 	def svgNightmare(self):
 		finalString = "";
 		bond = self.c_bond;
@@ -100,8 +100,16 @@ class Bond:
 
 			cx = startx1 + dx * (scale);
 			cy = starty1 + dy * (scale);
-			rotDeg = math.atan((y1 - y2) / (x1 - x2)) * 180 / math.pi;
-			slope = (starty1 - starty2) / (startx1 - startx2);
+
+			if (x1 == x2):
+				rotDeg = 0;
+			else:
+				rotDeg = math.atan((y1 - y2) / (x1 - x2)) * 180 / math.pi;
+
+			if (startx1 == startx2):
+				slope = (starty1 - starty2);
+			else:
+				slope = (starty1 - starty2) / (startx1 - startx2);
 		else:
 			scale = math.sqrt(radius[atom2.element] * radius[atom2.element] - 30**2 / 4);
 			x2 = x2 - dx * (scale);
@@ -117,8 +125,16 @@ class Bond:
 
 			cx = startx2 - dx * (scale);
 			cy = starty2 - dy * (scale);
-			rotDeg = math.atan((y2 - y1) / (x2 - x1)) * 180 / math.pi;
-			slope = (starty1 - starty2) / (startx1 - startx2);
+
+			if (x2 == x1):
+				rotDeg = 0;
+			else:
+				rotDeg = math.atan((y2 - y1) / (x2 - x1)) * 180 / math.pi;
+			
+			if (startx1 == startx2):
+				slope = (starty1 - starty2);
+			else:
+				slope = (starty1 - starty2) / (startx1 - startx2);
 	
 		# This is the coordinates of the width for the bond on a far-away atom
 		x1_new = 0;
@@ -195,6 +211,7 @@ class Bond:
 		
 		return finalString;
 
+
 	def __str__(self):
 		bond = self.c_bond;
 		return 'Attributes of a bond: %d %d %d %.2f %.2f %.2f %.2f %.2f %.2f %.2f %.2f' % (bond.a1, bond.a2, bond.epairs, bond.x1, bond.y1, \
@@ -262,7 +279,7 @@ class Molecule(molecule.molecule):
 		# for every line in file, find the line that matches the ones that contains an atom or a bond
 		if (file_object == None):
 			print("Error: the passed file pointer is None");
-			return;
+			return -1;
 
 		for line in file_object:
 			matchAtom = re.findall(r"(?:\+?\-?[0-9]+\.[0-9]{4}\s\w?)", line);

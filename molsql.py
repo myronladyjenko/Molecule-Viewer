@@ -112,7 +112,9 @@ class Database:
     def add_molecule(self, name, fp):
         conn = self.connection;
         mol = MolDisplay.Molecule();
-        mol.parse(fp);
+        if (mol.parse(fp) == -1):
+            print("Error from parsing the file");
+            return -1;
 
         self['Molecules'] = (None, name);
         numAtoms = mol.atom_no;
@@ -186,9 +188,9 @@ class Database:
 
         for row in dataTuple:
             radialGradientSVG = f"""  <radialGradient id="{row[0]}" cx="-50%" cy="-50%" r="220%" fx="20%" fy="20%">
-                                            <stop offset="0%" stop-color="#{row[1]}" />
-                                            <stop offset="50%" stop-color="#{row[2]}" />
-                                            <stop offset="100%" stop-color="#{row[3]}" />
+                                            <stop offset="0%" stop-color="{row[1]}" />
+                                            <stop offset="50%" stop-color="{row[2]}" />
+                                            <stop offset="100%" stop-color="{row[3]}" />
                                       </radialGradient>\n""";
             finalString += radialGradientSVG;
 

@@ -1,0 +1,189 @@
+.heading-molecule-upload {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 5.5vh;
+  color: #23435e;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  justify-content: center;
+}
+
+.heading-molecule-upload:hover {
+  background-color: #a7cae4;
+  cursor: pointer;
+}
+
+.heading-molecules-in-database {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 5.5vh;
+  color: #23435e;
+  padding-top: 2vh;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.table-of-molecules {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+  font-size: 1.8vh;
+  justify-content: center;
+}
+
+table, th, td {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  background-color: #23435e;
+  color: white;
+  border-top: 2px solid #23435e;
+  font-size: 3.5vh;
+  padding: 2.5vw 2.5vh;
+}
+
+td {
+  background-color: white;
+  color: #23435e;
+  border: 2px solid #23435e;
+  border-color: #23435e;
+  padding: 1vw 1vh;
+  font-size: 3vh;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.background-image {
+  background-image: url("/images/Conformer3D_CID_2244.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-attachment: fixed;
+  background-position: center center;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  animation: rotation 58s linear infinite;
+}
+
+.blur-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background: #ddf0ff;
+  opacity: 0.95;
+  z-index: 1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.my-file-upload {
+  background-color: #ddf0ff;
+  font-size: larger;
+  color: #23435e;
+  padding: 10px;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  display: none;
+}
+
+.style-file-name {
+  margin-left: 10px;
+  background-color: #ddf0ff;
+  font-size: larger;
+  color: #23435e;
+  padding: 10px;
+}
+
+.view-btn-icon {
+  font-size: 3vh;
+  background-color: #23435e;
+  border: 1px solid #23435e;
+  border-radius: 5px;
+  color: white;
+  padding: 0.5vh 0.5vw;
+}
+
+.delete-btn-icon {
+  font-size: 3vh;
+  background-color: rgb(159, 3, 3);
+  border: 1px solid rgb(159, 3, 3);
+  border-radius: 5px;
+  color: white;
+  padding: 0.5vh 0.5vw;
+}
+
+.view-btn-icon:hover {
+  cursor: pointer;
+  background-color: #316087;
+}
+
+.mol-display-div {
+  display: block;
+}
+
+.delete-btn-icon:hover {
+  cursor: pointer;
+  background-color: red;
+}
+
+.rotations-style {
+  display: flex;
+  flex-direction: row;
+  background-color: #24650b;
+  padding: 1vh 1vw;
+  color: white;
+  font-size: 1.5vw;
+}
+
+.text-style {
+  color: white;
+}
+
+.rotation-input {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  font-size: 1.5vw;
+}
+
+.p-class {
+  padding-top: 1.8vh;
+  padding-right: 2vw;
+  padding-bottom: 1.8vh;
+}
+
+.submit-rot-class {
+  margin-left: 1vw;
+  background-color: #d87d0e;
+  border-radius: 5px;
+  text-align: center;
+  align-content: center;
+}
+
+.submit-rot-class:hover {
+  background-color: #185e98;
+}
+

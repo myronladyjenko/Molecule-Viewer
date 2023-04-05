@@ -31,6 +31,103 @@ li {
 
 a {
   text-decoration: none;
-  font-size: 19px;
+  font-size: 2.3vh;
   color: white;
+}
+
+.style-heading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn-icon {
+  margin-bottom: 3.5vh;
+  font-size: 4vh !important;
+  background-color: transparent;
+  border: none;
+  color: #23435e;
+}
+
+.align-cancel {
+  display: flex;
+  flex-direction: row;
+}
+
+.cancel-icon {
+  margin-top: 3.5px;
+  margin-left: 1.7vw;
+  font-size: 35px !important;
+  background-color: #23435e;
+  border: none;
+  color: #ddf0ff;
+}
+
+.hidden {
+  display: none;
+}
+
+.blur {
+  filter: blur(5px);
+  pointer-events: none
+}
+
+.style-help-guide {
+  text-align: justify;
+}
+
+.help-guide {
+  position: absolute;
+  top: 30vh;
+  left: 35%;
+  max-width: 30vw;
+  background-color: #23435e;
+  padding: 20px;
+  border-radius: 5px;
+  border: 5px solid #d87d0e;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  z-index: 10;
+}
+
+.prompt-form {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: #23435e;
+  padding: 20px;
+  border-radius: 5px;
+  border: 5px solid #d87d0e;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  z-index: 10;
+}
+
+.style-enter-button {
+  background-color: #ddf0ff;
+  font-size: larger;
+  color: #23435e;
+  padding: 2%;
+}
+
+.ui-widget.ui-widget-content {
+  background: #d87d0e;
+  background-color: #d87d0e;
+}
+
+.ui-widget .ui-widget-content {
+  background-color: #d87d0e;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 2vh;
+  color: #E5E5E5;
+}
+
+.ui-dialog-titlebar.ui-widget-header {
+  background: #23435e;
+  color: #E5E5E5;
+}
+
+.disable-events {
+  pointer-events: none;
 }

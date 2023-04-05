@@ -33,6 +33,33 @@
   }
 };
 
+%extend mx_wrapper {
+  mx_wrapper(int xrot, int yrot, int zrot) {
+    mx_wrapper * mx;
+
+    mx = malloc(sizeof(mx_wrapper));
+    if ((xrot != 0) && (yrot == 0) && (zrot == 0)) {
+      xrotation(mx->xform_matrix, xrot);
+    } else {
+      xrotation(mx->xform_matrix, xrot);
+    }
+
+    if ((xrot == 0) && (yrot != 0) && (zrot == 0)) {
+      yrotation(mx->xform_matrix, yrot);
+    }
+
+    if ((xrot == 0) && (yrot == 0) && (zrot != 0)) {
+      zrotation(mx->xform_matrix, zrot);
+    }
+
+    return mx;
+  }
+
+  ~mx_wrapper() { 
+    free($self); 
+  }
+};
+
 %extend molecule {
   molecule() {
     molecule *mol;
@@ -90,6 +117,10 @@
     mol_xform($self, matrixX);
     mol_xform($self, matrixY);
     mol_xform($self, matrixZ);
+  }
+
+  void xform(xform_matrix xform_matrix) { 
+    mol_xform(self, xform_matrix); 
   }
 };
 

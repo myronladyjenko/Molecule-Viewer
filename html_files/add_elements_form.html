@@ -1,6 +1,8 @@
 <body id="promt-element-form">
     <div class="align-cancel">
-        <h1> <u> Enter attributes of an element </u> </h1>
+        <h1> <u> Enter element's attributes </u> </h1>
+
+        <p class="nav-space"> </p>
         <button onclick="performActionForClose()" class="material-symbols-outlined cancel-icon"> cancel </button>
         <script>
             function performActionForClose() {
@@ -11,10 +13,13 @@
     </div>
 
     <br>
-    <form action="#" enctype="multipart/form-data" method="post"> 
+    <form enctype="multipart/form-data" method="post"> 
+        <div id="pop-up" title="Error. Incorrect value" style="display: none;">
+            <p id="pop-up-message"></p>
+        </div>
+
         <div>  
-            <label for="body"> Enter radius: </label>
-            <input type="number" id="radius" name="radius"/>
+            <p> Enter radius: <input style="font-size: large;" type="number" id="radius" name="radius"> </p>
         </div>
 
         <br>

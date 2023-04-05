@@ -1,10 +1,6 @@
 $(document).ready(function() {
     let clicked_button;
 
-    window.onload = function() {
-        $("#navigation-bar-placeholder").load("navigation_bar.html");
-    };
-
     $('.heading-periodic-table').click(function() {
         $('#lower-div').toggle();
     });
@@ -14,25 +10,53 @@ $(document).ready(function() {
 
     prompt_form.submit(function(event) {
         event.preventDefault();
+        const radVal = $("#radius").val();
+        const radius = parseInt($("#radius").val());
 
-        $.post("/elements_manipulation.html", 
-            {
-                value: 1,
-                number: parseInt($(clicked_button).find(".p-top").text()),
-                code: $(clicked_button).find(".span-center").text(),
-                name: $(clicked_button).find(".p-bottom").text(),
-                radius: parseInt($("#radius").val()),
-                color1: $("#col1").val(),
-                color2: $("#col2").val(),
-                color3: $("#col3").val(),
-            },
-            function(data) {
-                $(".table-of-elements").html(data);
-                $(prompt_form).addClass("hidden");
-                $("#main-page").removeClass("blur");
-                $(clicked_button).removeClass("element-gray-class");
-            }
-        );
+        if (radVal.trim() === '' || radius > 100 || radius < 25) {
+            $("#radius").css({"background-color": "#E93636", "color": "white"});
+  
+            setTimeout(() => {
+                $("#radius").css({"background-color": "white", "color": "black"});
+            }, 500);
+
+            $("#pop-up-message").text("Please a correct radius (between 25 and 80)");
+            $("#pop-up").dialog({
+                buttons: {
+                    close: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });            
+        } else {
+            $.post("/elements_manipulation.html", 
+                {
+                    value: 1,
+                    number: parseInt($(clicked_button).find(".p-top").text()),
+                    code: $(clicked_button).find(".span-center").text().trim(),
+                    name: $(clicked_button).find(".p-bottom").text().trim(),
+                    radius: parseInt($("#radius").val()),
+                    color1: $("#col1").val(),
+                    color2: $("#col2").val(),
+                    color3: $("#col3").val(),
+                },
+                function(data) {
+                    $(".table-of-elements").html(data);
+                    $(prompt_form).addClass("hidden");
+                    $("#main-page").removeClass("blur");
+
+                    $(clicked_button).removeClass("element-gray-class");
+                    $(clicked_button).hover(function() {
+                        $(this).css({"background-color": "red"});
+                    }, function() {
+                        $(this).css("background-color", "");
+                    });
+
+                    let dimensionY = $(".table-of-elements").offset().top;
+                    $('html, body').animate({scrollTop: dimensionY}, 'slow');
+                }
+            );
+        }
     });
 
     $("#question-button").on('click', function() {
@@ -62,6 +86,10 @@ $(document).ready(function() {
                     },
                     function(data) {
                         prompt_form.html(data);
+                        const top = (window.innerHeight / 2 - $(prompt_form).height() / 2) + window.scrollY;
+                        const string = top.toString() + "px"; 
+                        $(prompt_form).css("top", string);
+
                         $("#main-page").addClass("blur");
                         prompt_form.removeClass("hidden");
                     }
@@ -70,7 +98,7 @@ $(document).ready(function() {
                 $.post("/elements_manipulation.html", 
                     {
                         value: -1,
-                        code: $(clicked_button).find(".span-center").text(),
+                        code: $(clicked_button).find(".span-center").text().trim(),
                     },
                     function(data) {
                         $(".table-of-elements").html(data);
@@ -96,7 +124,6 @@ $(document).ready(function() {
                 }
 
                 for (let i = 0; i < name_cells.length; i++) {
-                    console.log(name_cells[i]);
                     let html_oblect = {};
 
                     $(".span-center").each(function() {
@@ -108,6 +135,12 @@ $(document).ready(function() {
                     $(".cell").each(function() {
                         if ($(this).find(html_oblect).length > 0) {
                             $(this).removeClass("element-gray-class");
+
+                            $(this).hover(function() {
+                                $(this).css("background-color", "red");
+                            }, function() {
+                                $(this).css("background-color", "");
+                            });                            
                         }
                     });
                 }

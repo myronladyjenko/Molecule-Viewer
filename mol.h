@@ -36,6 +36,10 @@ typedef struct molecule {
 
 typedef double xform_matrix[3][3];
 
+typedef struct mx_wrapper {
+    xform_matrix xform_matrix;
+} mx_wrapper;
+
 // Nightmare Mode
 typedef struct rotations {
     // arrays of 72 pointers to molecule
