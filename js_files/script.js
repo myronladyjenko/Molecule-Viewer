@@ -1,3 +1,4 @@
+// Make sure document is ready to be acted upon
 $(document).ready(function() {
     let clicked_button;
 
