@@ -14,5 +14,5 @@ python3 server.py [your_port_number]
 # Application functionality
 
 # Application overview
-- Here are sample screenshots from the Molecule-Viewer website:
-  ![Front Page of the website][images/FrontPage.png]
+- Here are sample screenshots from the Molecule-Viewer website:  
+  ![Front Page of the website](images/FrontPage.png)
