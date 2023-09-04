@@ -12,6 +12,11 @@
 python3 server.py [your_port_number]
 ```
 # Application functionality
+- The molecule viewer website is a Full-stack application built using C, Python, Javascript, sqlite3 and CSS/HTML.
+  The website supports the following functionality:
+  1. Addition/removal of elements using interactive 'Periodic Table'
+  2. Addition/removal of molecules through SDF files with proper validation 
+  3. View of the molecules and their rotation around the X, Y and Z axis.
 
 # Application overview
 - Here are sample screenshots from the Molecule-Viewer website:  
