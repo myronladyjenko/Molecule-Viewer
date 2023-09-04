@@ -22,7 +22,10 @@ python3 server.py [your_port_number]
   ![Periodic table with selected elements](images/PerTable1.png)
   -
   ![Upload page with no molecules](images/UplMol0.png)
+  -
   ![Upload page after uploading a molecule](images/UplMol1.png)
+  -
   ![Molecule view in 2D with rotations](images/UplMol2.png)
+  -
   ![3D view of the molecules](images/3DMol.png)
 
