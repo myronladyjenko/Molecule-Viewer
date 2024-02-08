@@ -19,20 +19,4 @@ python3 server.py [your_port_number]
   3. View of the molecules and their rotation around the X, Y and Z axis.
 
 # Application overview
-<img src="./images/FrontPage.png" width="800"/>
-- Here are sample screenshots from the Molecule-Viewer website:  
-  -
-  ![Front Page of the website](images/FrontPage.png)
-  -
-  ![Periodic table with no selected elements](images/PerTable0.png)  
-  -
-  ![Periodic table with selected elements](images/PerTable1.png)  
-  -
-  ![Upload page with no molecules](images/UplMol0.png)  
-  -
-  ![Upload page after uploading a molecule](images/UplMol1.png)  
-  -
-  ![Molecule view in 2D with rotations](images/UplMol2.png)  
-  -
-  ![3D view of the molecules](images/3DMol.png)  
-
+<img src="./images/FrontPage.png"/>
