@@ -19,6 +19,7 @@ python3 server.py [your_port_number]
   3. View of the molecules and their rotation around the X, Y and Z axis.
 
 # Application overview
+<img src="./images/FrontPage.png" width="800"/>
 - Here are sample screenshots from the Molecule-Viewer website:  
   -
   ![Front Page of the website](images/FrontPage.png)
