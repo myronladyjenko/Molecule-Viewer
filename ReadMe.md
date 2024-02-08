@@ -19,10 +19,10 @@ python3 server.py [your_port_number]
   3. View of the molecules and their rotation around the X, Y and Z axis.
 
 # Application overview
-<img src="./images/FrontPage.png" title="Front Page of the website"/>
-<img src="./images/PerTable0.png" title="Periodic table with no selected elements"/>
-<img src="./images/PerTable1.png" title="Periodic table with selected elements"/>
-<img src="./images/UplMol0.png" title="Upload page with no molecules"/>
-<img src="./images/UplMol2.png" title="Upload page after uploading a molecule"/>
-<img src="./images/UplMol3.png" title="Molecule view in 2D with rotations"/>
-<img src="./images/3DMol.png" title="3D view of the molecules"/>
+<img src="./images/FrontPage.png"/>
+<img src="./images/PerTable0.png"/>
+<img src="./images/PerTable1.png"/>
+<img src="./images/UplMol0.png"/>
+<img src="./images/UplMol2.png"/>
+<img src="./images/UplMol3.png" />
+<img src="./images/3DMol.png"/>
